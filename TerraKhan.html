@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    
+  
+
+    <title>Trip Expense</title>
+  </head>
+
+  <body>
+    <!-- https://www.flaticon.com/ -->
+
+    <!-- PAGE "HOME" -->
+    <div data-role="page" id="page-home" style="overflow:hidden;">
+      <div
+        data-role="panel"
+        data-display="overlay"
+        id="panel"
+        style="top: 50px; width: 20em; opacity: 1;">
+        <div style="text-align: center; margin-bottom: 50px; overflow: hidden;">
+          <h1 style="text-decoration: overline">MAIN PAGE</h1>
+          <img
+            src="img/png-clipart-sao-logo-kirito-sinon-asuna-sword-art-online-decal-sword-art-text-logo-removebg-preview.png"
+            alt="Logo"
+            style="width: 100%"
+            ; />
+        </div>
+
+        <ul data-role="listview">
+          <li data-icon="false" ">
+            <a href="#page-home" class="active">Home</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-create">Create New Trip</a>
+          </li>
+
+          <li data-icon="false" >
+            <a href="#page-list">List Journey</a>
+          </li>
+
+          <li data-icon="false" >
+            <a href="#page-about">About Us</a>
+          </li>
+        </ul>
+
+        
+      </div>
+
+      <div
+        data-role="header"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div style="margin-left: 5px; margin-right: 5px">
+          <a
+            style="border: none; background-color: transparent"
+            id="panel-open"
+            class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon"
+            >Open Panel</a
+          >
+        </div>
+      </div>
+
+      <div data-role="main">
+        <div class="shortcut">
+          <div class="shortcut-item">
+            <a
+              href="#page-create"
+              class="ui-btn ui-alt-icon ui-icon-plus ui-nodisc-icon ui-btn-icon-top">
+              Create New Trip
+            </a>
+          </div>
+
+          <div class="shortcut-item">
+            <a
+              href="#page-list"
+              class="ui-btn ui-alt-icon ui-icon-grid ui-nodisc-icon ui-btn-icon-top">
+              List Journey
+            </a>
+          </div>
+
+          <div class="shortcut-item">
+            <a
+              href="#page-about"
+              class="ui-btn ui-alt-icon ui-icon-info ui-nodisc-icon ui-btn-icon-top">
+              Home About
+            </a>
+          </div>
+          <div class="shortcut-item">
+            <a
+              id="btn-reset"
+              class="ui-btn ui-alt-icon ui-icon-plus ui-nodisc-icon ui-btn-icon-top">
+              Reset Trip
+            </a>
+          </div>
+
+          <div class="shortcut-item">
+            <a
+              id="btn-backup"
+              class="ui-btn ui-alt-icon ui-icon-grid ui-nodisc-icon ui-btn-icon-top">
+              Backup Model
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        data-role="footer"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a
+                href="#page-home"
+                class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon ui-state-persist active"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-create"
+                class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon"
+                >New</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-list"
+                class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon"
+                >List</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-about"
+                class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE "CREATE NEW ACCOUNT" -->
+    <div data-role="page" id="page-create" style="overflow: hidden;">
+      <div data-role="panel" data-display="overlay" id="panel" style="top: 50px; width: 22em;">
+        <div style="text-align: center; margin-bottom: 50px">
+          <h1 style="text-decoration: overline ;">Trip Expense</h1>
+          <img
+            src="img/png-clipart-sao-logo-kirito-sinon-asuna-sword-art-online-decal-sword-art-text-logo-removebg-preview.png"
+            alt="Logo"
+            width="100%" />
+        </div>
+
+        <ul data-role="listview">
+          <li data-icon="false">
+            <a href="#page-home">Home</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-create" class="active">Create New Trip</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-list">List Journey</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-about">About Us</a>
+          </li>
+        </ul>
+
+       
+      </div>
+
+      <div
+        data-role="header"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div style="margin-left: 5px; margin-right: 5px">
+          <a
+            style="border: none; background-color: transparent"
+            id="panel-open"
+            class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon"
+            >Open Panel</a
+          >
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <!-- Registration Form -->
+        <form id="frm-register" style="width:480px; margin: auto; margin-top: 100px;">
+          <label class="small-text">Flight ID</label>
+          <input style="font-size: 15px;"
+            type="text"
+            id="name"
+            data-clear-btn="true"
+            placeholder="Enter Flight_ID here..."
+            required />
+
+          <fieldset class="ui-grid-a" style="overflow: visible">
+            <div class="ui-block-a" style="padding-right: 5px">
+              <label class="small-text">Place Visit</label>
+              <input
+               style="font-size: 15px;"
+                type="text"
+                placeholder="Enter destination here..."
+                id="destination"
+                data-clear-btn="true"
+                required />
+            </div>
+
+            <div class="ui-block-b" style="padding-left: 5px">
+              <label class="small-text">Date</label>
+              <input style="font-size: 15px;" type="date" id="date" required />
+            </div>
+          </fieldset>
+
+          <label class="small-text">Description</label>
+          <input
+            style="font-size: 16px;"
+            type="text"
+            placeholder="Enter description here..."
+            id="description"
+            data-clear-btn="true" />
+
+          
+
+          <label class="small-text">Required Risk Assessment</label>
+          <select id="risk" data-role="slider" data-mini="true">
+            <option value="No" selected>No</option>
+            <option value="Yes">Yes</option>
+          </select>
+
+          <button type="submit" class="green">Create Trip</button>
+        </form>
+
+        <!-- Confirm Registration -->
+        <form
+          data-role="popup"
+          id="frm-confirm"
+          class="ui-content"
+          data-overlay-theme="b">
+          <table style="text-align: left">
+            <tr>
+              <th>Name</th>
+              <td id="name"></td>
+            </tr>
+
+            <tr>
+              <th>Place Visit</th>
+              <td id="destination"></td>
+            </tr>
+
+            <tr>
+              <th>Date</th>
+              <td id="date"></td>
+            </tr>
+
+            <tr>
+              <th>Description</th>
+              <td id="description"></td>
+            </tr>
+
+            <tr>
+              <th>Risk Assessment</th>
+              <td id="risk"></td>
+            </tr>
+
+          
+          </table>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="padding: 5px">
+              <button type="button" id="edit">Edit</button>
+            </div>
+
+            <div class="ui-block-b" style="padding: 5px">
+              <button type="submit" class="green">Confirm</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div
+        data-role="footer"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a
+                href="#page-home"
+                class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-create"
+                class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon ui-state-persist active"
+                >New</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-list"
+                class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon"
+                >List</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-about"
+                class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE "TRIP LIST" -->
+    <div data-role="page" id="page-list">
+      <div data-role="panel" data-display="overlay" id="panel" style="width: 22em; transition: all 300ms ease-in-out; top: 50px;">
+        <div style="text-align: center; margin-bottom: 50px">
+          <h1 style="text-decoration: overline;">Journey List</h1>
+          <img
+            src="/img/png-clipart-sao-logo-kirito-sinon-asuna-sword-art-online-decal-sword-art-text-logo-removebg-preview.png"
+            alt="Logo"
+            width="100%" />
+        </div>
+
+        <ul data-role="listview">
+          <li data-icon="false">
+            <a href="#page-home">Home</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-create">Create New Trip</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-list" class="active">List Journey</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-about">About Us</a>
+          </li>
+        </ul>
+
+       
+      </div>
+
+      <div
+        data-role="header"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div style="margin-left: 5px; margin-right: 5px">
+          <a
+            style="border: none; background-color: transparent"
+            id="panel-open"
+            class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon"
+            >Open Panel</a
+          >
+        </div>
+      </div>
+
+      <div data-role="main">
+        <table style="margin: auto;">
+          <tr>
+            <td style="width: 85%; padding: 30px;">
+              <input style="height: 0px; font-size: 17px;" type="text" placeholder="Search Flight ID..." id="txt-filter" />
+            </td>
+
+            <td style="padding: 0px">
+              <button id="btn-filter-popup"></button>
+            </td>
+
+            <td style="padding: 0px">
+              <button
+                class="ui-btn ui-icon-refresh ui-btn-icon-notext ui-nodisc-icon"
+                id="btn-reset"></button>
+            </td>
+          </tr>
+        </table>
+
+        <form style="width: 500px; margin-left: 40px;"
+          data-role="popup"
+          id="frm-search"
+          class="ui-content"
+          style="width: 80vw"
+          data-overlay-theme="b">
+          <label class="small-text">Flight Name</label>
+          <input
+            type="text"
+            id="name"
+            data-clear-btn="true"
+            placeholder="Enter Flight_ID here..." />
+
+          <label class="small-text">Place Visit</label>
+          <input
+            type="text"
+            placeholder="Enter destination here..."
+            id="destination"
+            data-clear-btn="true" />
+
+          <label class="small-text">Date</label>
+          <input type="date" id="date" />
+
+          <button type="submit" class="green">Search</button>
+        </form>
+
+        <ul style="width: 27%; margin-left: 720px;; "
+          id="list-trip"
+          data-role="listview"
+          class="ui-nodisc-icon ui-alt-icon"></ul>
+      </div>
+
+      <div
+        data-role="footer"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a
+                href="#page-home"
+                class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-create"
+                class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon"
+                >New</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-list"
+                class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon ui-state-persist active"
+                >List</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-about"
+                class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE "TRIP DETAILS" -->
+    <div data-role="page" id="page-detail">
+      <div
+        data-role="header"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div style="margin-left: 5px; margin-right: 5px">
+          <a
+            href="#page-list"
+            class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon transparent"
+            >Back to list</a
+          >
+
+          <a
+            href="#option"
+            data-rel="popup"
+            style="float: right"
+            class="ui-btn ui-btn-icon-notext ui-nodisc-icon btn-option"
+            >Option</a
+          >
+        </div>
+      </div>
+
+      <div data-role="main" class="ui-content">
+        <div data-role="popup" id="option">
+          <ul data-role="listview" data-icon="false">
+            <li>
+              <a
+                href="#frm-update"
+                data-rel="popup"
+                data-position-to="window"
+                id="btn-update-popup">
+                Update
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#frm-delete"
+                data-rel="popup"
+                data-position-to="window"
+                id="btn-delete-popup">
+                Delete
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form data-role="popup" id="frm-delete" data-overlay-theme="b">
+          <div data-role="header">
+            <h1 style="padding-top: 20px">Delete Trip?</h1>
+          </div>
+
+          <div role="main" class="ui-content">
+            <h3>Are you sure you want to proceed deleting this trip?</h3>
+            <p>This action cannot be undone! Once you deleted it</p>
+            <br />
+
+            <p>
+              <em
+                >Please type "<strong>confirm delete</strong>" to delete this
+                trip.</em
+              >
+            </p>
+            <input type="text" id="txt-confirm" />
+
+            <div style="text-align: right">
+              <a class="ui-btn ui-corner-all ui-btn-inline" data-rel="back"
+                >Cancel</a
+              >
+
+              <button
+                type="submit"
+                class="ui-btn ui-corner-all ui-btn-inline ui-disabled green"
+                id="btn-delete">
+                Delete
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form
+          id="frm-update"
+          data-role="popup"
+          class="ui-content"
+          data-overlay-theme="b">
+          <label class="small-text">Flight_ID</label>
+          <input
+            type="text"
+            id="name"
+            data-clear-btn="true"
+            placeholder="Enter Flight_ID here..."
+            required />
+
+          <fieldset class="ui-grid-a" style="overflow: visible">
+            <div class="ui-block-a" style="padding-right: 5px">
+              <label class="small-text">Place Visit</label>
+              <input
+                type="text"
+                placeholder="Enter destination here..."
+                id="destination"
+                data-clear-btn="true"
+                required />
+            </div>
+
+            <div class="ui-block-b" style="padding-left: 5px">
+              <label class="small-text">Date</label>
+              <input type="date" id="date" required />
+            </div>
+          </fieldset>
+
+          <label class="small-text">Description</label>
+          <input
+            type="text"
+            placeholder="Enter description here..."
+            id="description"
+            data-clear-btn="true" />
+
+    
+
+          <label class="small-text">Required Risk Assessment</label>
+          <select id="risk" data-role="slider" data-mini="true">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a" style="padding: 5px">
+              <button type="button" id="cancel">Cancel</button>
+            </div>
+
+            <div class="ui-block-b" style="padding: 5px">
+              <button type="submit" class="green">Update</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="detail" style="width: 600px; margin:auto">
+          <h1 id="name"></h1>
+
+          <table style="text-align: left">
+            <tr>
+              <th><img src="img/icon-destination.png" height="20px" /></th>
+              <td id="destination"></td>
+            </tr>
+
+            <tr>
+              <th><img src="img/icon-date.png" height="20px" /></th>
+              <td id="date"></td>
+            </tr>
+
+            <tr>
+              <th><img src="img/icon-description.png" height="20px" /></th>
+              <td id="description"></td>
+            </tr>
+
+            <tr>
+              <th><img src="img/icon-risk.png" height="20px" /></th>
+              <td id="risk"></td>
+            </tr>
+          </table>
+        </div>
+
+        <table style="margin-top: 20px; text-align: left; margin-bottom: 5px; margin: auto; width: 600px;">
+          <tr style="width: 100%">
+            <td>
+              <button
+                style="font-size: 10px"
+                id="btn-toggle-expense"
+                class="ui-btn ui-alt-icon ui-icon-plus ui-corner-all ui-btn-icon-notext ui-nodisc-icon ui-btn-inline ui-mini transparent">
+                Toggle Expense
+              </button>
+            </td>
+
+            <th style="font-size: 15px; width: 800px">Show Expenses</th>
+
+            <td>
+              <a
+                href="#frm-add-expense"
+                data-rel="popup"
+                data-position-to="window"
+                id="btn-add-expense-popup"
+                class="ui-btn ui-mini green ui-corner-all">
+                Add
+              </a>
+            </td>
+          </tr>
+        </table>
+
+        <div id="expense" style="display: none" >
+          <div id="list" style="width:600px; margin:auto; margin-top: 50px;"></div>
+        </div>
+      </div>
+
+      <form
+        id="frm-add-expense"
+        data-role="popup"
+        class="ui-content"
+        data-overlay-theme="b">
+        <fieldset class="ui-grid-a" style="overflow: visible">
+          <div class="ui-block-a" style="padding-right: 5px">
+            <label class="small-text">Amount</label>
+            <input
+              type="number"
+              id="amount"
+              data-clear-btn="true"
+              placeholder="Enter amount here..."
+              required />
+          </div>
+
+          <div class="ui-block-b" style="padding-left: 5px">
+            <label class="small-text">Expense Type</label>
+            <select id="type" data-mini="true" required>
+              <option value="Travel">Travel</option>
+              <option value="Food">Food</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="ui-grid-a" style="overflow: visible">
+          <div class="ui-block-a" style="padding-right: 5px">
+            <label class="small-text">Date</label>
+            <input type="date" id="date" required />
+          </div>
+
+          <div class="ui-block-b" style="padding-left: 5px">
+            <label class="small-text">Time</label>
+            <input type="time" id="time" required />
+          </div>
+        </fieldset>
+
+        <label class="small-text">Comment</label>
+        <input
+          type="text"
+          placeholder="Enter comment here..."
+          id="comment"
+          data-clear-btn="true" />
+
+        <div class="ui-grid-a">
+          <div class="ui-block-a" style="padding: 5px">
+            <button type="button" id="cancel">Cancel</button>
+          </div>
+
+          <div class="ui-block-b" style="padding: 5px">
+            <button type="submit" class="green">Add</button>
+          </div>
+        </div>
+      </form>
+
+      <div
+        data-role="footer"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a
+                href="#page-home"
+                class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-create"
+                class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon"
+                >New</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-list"
+                class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon ui-state-persist active"
+                >List</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-about"
+                class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE "ABOUT" -->
+    <div data-role="page" id="page-about" style="overflow: hidden;">
+      <div data-role="panel" data-display="overlay" id="panel" style=" width: 20em; top: 50px; position: fixed;">
+        <div style="text-align: center; margin-bottom: 50px;">
+          <h1 style="text-decoration: overline;">ABOUT SECTION</h1>
+          <img
+            src="img/png-clipart-sao-logo-kirito-sinon-asuna-sword-art-online-decal-sword-art-text-logo-removebg-preview.png"
+            alt="Logo"
+            width="100%" />
+        </div>
+
+        <ul data-role="listview">
+          <li data-icon="false">
+            <a href="#page-home">Home</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-create">Create New Trip</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-list"> List Journey</a>
+          </li>
+
+          <li data-icon="false">
+            <a href="#page-about" class="active">About Us</a>
+          </li>
+        </ul>
+
+        
+      </div>
+
+      <div
+        data-role="header"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div style="margin-left: 5px; margin-right: 5px">
+          <a
+            style="border: none; background-color: transparent"
+            id="panel-open"
+            class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon"
+            >Open Panel</a
+          >
+        </div>
+      </div>
+
+      <div class="background">
+        <img class="lazyload" src="/img/bg_story.jpg" alt="background">
+      </div>
+
+    <!-- 01: STORY -->
+    <article id="story" class="storys effects">
+      <!-- Title -->
+      <div class="titles">
+        <p  class="title__nums" style=" height: 14.344px; bottom: 12px;"><img class="lazyload" style="width: 20px;" src="/img/num.png" alt="01"></p>
+        <p  class="title__text-ens" style=" margin-top: 0px; margin-bottom: 0px; padding-top: 0px;"><img class="lazyload"  style=" width: 192px;" src="/img/text_en.png" alt="Save the Arkrasia"></p>
+        <h1  class="title__mains" style=" margin-bottom: 0px; margin-top: 0px;"><img class="lazyload" src="/img/title.png" alt="STORY"></h1>
+        <p  class="title__text-jps" style=" margin-bottom: 0px;  margin-top: 0px;  bottom: 58px;height: 77px;">ストーリー</p>
+      </div>
+      <!-- Lead -->
+      <ul class="leads effects" style="padding-left: 0px; right: 7px;">
+        <li  class="lead__texts">OMEN I WITNESSED</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">With the skies split aside, the magnificent paradise "arkracia" shines full of light.</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">a dreadful nightmare shrouded in darkness……</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">The demons of "Petrania" are currently on the lookout for "ark."</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">...I'm attempting to take out Arkrasia.</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">Myth recited Ark</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">"Unawakened huge power that has ability to allow owner to alter the destiny of universe into light or darkness."</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">So,  please... please...</li>
+        <li  class="lead__texts" style="text-transform: capitalize;">Retrieve the buried ark in this world before them.</li>
+      </ul>
+    </article>
+
+    <!-- 02: About Us section -->
+    <article class="class effects" id="class">
+
+      <!-- Title-Text -->
+      <div class="ttl-box1">
+        <h1 class="ttl-box__title1" style="margin-top: 0px; margin-bottom: 0px" >ABOUT US</h1>
+        <p class="ttl-box__text1" >THE STORY OF HEAVEN PILGRIMS</p>
+      </div>
+
+      <!-- Leading-Text -->
+      <ul class="lead-box1" style="padding-left: 0px;">
+        <li class="lead-box__text1" >A mysterious mercenary retold to be empowered the black magic crystal consolidated by the cursed darkened Elixir.</li>
+        <li class="lead-box__text1" >In order to inherit and to break the barricade of that greatness energy。</li>
+        <li class="lead-box__text1" >The pilgrims who were assigned to be delegated for the goddess of Demonite Creation, now, is carrying on the duty to find out the truth behind the myth……。</li>
+      </ul>
+
+      <div
+        data-role="footer"
+        data-position="fixed"
+        data-tap-toggle="false"
+        data-hide-during-focus="">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a
+                href="#page-home"
+                class="ui-btn ui-btn-b ui-icon-home ui-btn-icon-notext ui-nodisc-icon"
+                >Home</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-create"
+                class="ui-btn ui-btn-b ui-icon-plus ui-btn-icon-notext ui-nodisc-icon"
+                >New</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-list"
+                class="ui-btn ui-btn-b ui-icon-grid ui-btn-icon-notext ui-nodisc-icon"
+                >List</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#page-about"
+                class="ui-btn ui-btn-b ui-icon-info ui-btn-icon-notext ui-nodisc-icon ui-state-persist active"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
